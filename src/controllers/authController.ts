@@ -23,7 +23,7 @@ class AuthController {
         return res.status(401).send({ message: 'Incorrect password' });
       }
   
-      const token = jwt.sign({ userId: user._id }, 'your_secret_key', { expiresIn: '1h' });
+      const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
   
       res.status(200).send({ message: 'Login successful', token: token });
     } catch (error) {
