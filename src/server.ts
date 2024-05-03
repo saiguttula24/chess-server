@@ -1,4 +1,4 @@
-import app from './app';
+import { server } from './app';
 const mongoose = require('mongoose');
 require('dotenv').config();
 
@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
   .then(() => {
     console.log('MongoDB connected successfully');
-    app.listen(PORT, () => {
+    server.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })
