@@ -3,6 +3,7 @@ import http from 'http';
 import { init as initSocketIO } from './utils/socket';
 import userRoutes from './routes/userRoutes';
 import authRoutes from './routes/authRoutes';
+import aiRoutes from './routes/aiRoutes';
 import cors from 'cors';
 
 const app:Application = express();
@@ -16,6 +17,7 @@ app.use(cors({
 
 app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
+app.use('/ai',aiRoutes);
 
 initSocketIO(server);
 
